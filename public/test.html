@@ -1,0 +1,89 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blend Two Images</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #000;
+    }
+
+    .image-container {
+      position: relative;
+      width: 500px;
+      height: 300px;
+    }
+
+    .image-container img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .top-image {
+      mix-blend-mode: screen;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="image-container">
+    <img src="GettyImages-713835919-DRONE-1200x800.webp" alt="Image 1">
+    <img src="2054530-Photoroom.jpg" alt="Image 2" class="top-image">
+  </div>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blend Two Background Images</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #000;
+    }
+
+    .image-container {
+      position: relative;
+      width: 80%;
+      height: 80%;
+      background-image: url('./GettyImages-713835919-DRONE-1200x800.webp');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .image-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('./2054530-Photoroom.jpg');
+      background-size: cover;
+      background-position: center;
+      mix-blend-mode: screen;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="image-container"></div>
+
+</body>
+</html>
