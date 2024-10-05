@@ -48,7 +48,7 @@ app.post('/signup', (req, res) => {
                 xlsx.utils.sheet_add_aoa(ws, [newUser], { origin: -1 });
                 saveWorkbook();
                 info = email;
-                res.status(200).send('Welcome!')
+                res.status(200).send(`Welcome ${name}!`)
             }else{
                 res.status(401).send('Password must contain atleat 8 characters')
             }
@@ -66,11 +66,12 @@ app.post('/signin', (req, res) => {
     const user = users.find(u => u.Email === email && u.Password === password);
     if (user) {
         info = email;
-        res.status(200).send('Welcome!')
+        res.status(200).json({ message: 'Welcome!', name: user.Name });
     } else {
-        res.status(401).send('Invalid email or password');
+        res.status(401).json({ message: 'Invalid email or password' });
     }
 });
+
 const saveregisterWorkbook = () => xlsx.writeFile(registerWorkbook, REGISTER_PATH);
 app.post('/register', (req, res) =>{
     const {name, email, rollno, branch, year} = req.body;

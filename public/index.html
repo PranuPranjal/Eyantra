@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Yantra - Innovating Tomorrow, Today</title>
+    <title>E-Yantra</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header -->
     <header class="main-header">
         <div class="container header-container">
             <div class="logo">
@@ -16,12 +15,12 @@
             </div>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#" class="nav-link">Home</a></li>
-                    <li><a href="#about" class="nav-link">About Us</a></li>
-                    <li><a href="#events" class="nav-link">Events</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="sign-up.html" class="nav-link cta-button">Join Us</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#about" class="nav-link"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="#events" class="nav-link"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                    <li><a href="#projects" class="nav-link"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                    <li><a href="sign-up.html" class="nav-link" id="loginLink"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                    <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact Us</a></li>
                 </ul>
             </nav>
         </div>
@@ -110,8 +109,8 @@
         <div class="container footer-container">
             <div class="footer-info">
                 <h3>Contact Us</h3>
-                <p><i class="fas fa-envelope"></i><a href="mailto:eyantraclub@nitandhra.ac.in"> eyantraclub@nitandhra.ac.in</a></p>
-                <p><i class="fas fa-phone"></i><a href="tel:+916301124363"> +916301124363</a></p>
+                <p><i class="fas fa-envelope"></i><a style="text-decoration: none; color: yellow;" href="mailto:eyantraclub@nitandhra.ac.in"> eyantraclub@nitandhra.ac.in</a></p>
+                <p><i class="fas fa-phone"></i><a style="text-decoration: none; color: yellow;" href="tel:+916301124363"> +916301124363</a></p>
             </div>
             <div class="social-links">
                 <a href="https://www.instagram.com/eyantraclub_nitandhra/" class="social-link"><i class="fab fa-instagram"></i></a>
@@ -124,5 +123,18 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userName = localStorage.getItem('userName');
+            const loginLink = document.getElementById('loginLink');
+            const userNameDisplay = document.getElementById('userNameDisplay');
+
+            if (userName) {
+                loginLink.style.display = 'none';
+                userNameDisplay.style.display = 'inline';
+                userNameDisplay.textContent = `Welcome, ${userName}!`;
+            }
+        });
+    </script>
 </body>
 </html>

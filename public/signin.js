@@ -9,10 +9,11 @@ document.getElementById('signin-form').addEventListener('submit', async (e) => {
         body: JSON.stringify({ email, password })
     });
 
-    const message = await response.text();
+    const result = await response.json();
     if (response.ok) {
+        localStorage.setItem('userName', result.name);
         window.location.href = '/index.html';
     } else {
-        document.getElementById('message').innerText = message;
+        document.getElementById('message').innerText = result.message;
     }
 });
