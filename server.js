@@ -107,11 +107,7 @@ app.post('/create', (req, res) =>{
     if (data.length <= 1) {
         return res.status(404).json({ message: "No more strings" });
     }
-
-    // Get the first string
     const string = data[1][0];
-
-    // Remove the first string and write the file back
     const updatedData = [data[0], ...data.slice(2)];
     const newWorksheet = xlsx.utils.aoa_to_sheet(updatedData);
     workbook.Sheets[sheetName] = newWorksheet;
